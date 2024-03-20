@@ -28,4 +28,14 @@ public class UserInfoService implements UserDetailsService {
                         () -> new UsernameNotFoundException("Usuario no encontrado")
         );
     }
+
+    public String guardaUser(UserInfo userInfo){
+        userInfo.setPassword(
+                passwordEncoder.encode(userInfo.getPassword())
+        );
+        userInfo.setNonLocked(true);
+        repository.save(userInfo);
+        return "Usuario guardado";
+    }
+
 }

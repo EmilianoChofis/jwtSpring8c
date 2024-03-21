@@ -63,9 +63,11 @@ public class UserController {
             if (authentication.isAuthenticated()){
                 return jwtService.generateToken(authRequest.getUsername());
             }else{
+                System.out.println("else");
                 throw new UsernameNotFoundException("Usuario invalido");
             }
         }catch (Exception e){
+            System.out.println("catch");
             throw new UsernameNotFoundException("Usuario invalido");
         }
     }

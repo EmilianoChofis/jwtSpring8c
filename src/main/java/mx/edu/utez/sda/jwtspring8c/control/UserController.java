@@ -40,13 +40,13 @@ public class UserController {
     }
 
     @GetMapping("/soloadmin")
-    @PreAuthorize("hasRole('ROLE_ADMIN')")
+    //@PreAuthorize("hasRole('ROLE_ADMIN')")
     public String soloAdmin(){
         return "Esto solo lo reciben admins";
     }
 
     @GetMapping("/paraUser")
-    @PreAuthorize("hasAnyAuthority('ROLE_ADMIN','ROLE_USER')")
+   // @PreAuthorize("hasAnyAuthority('ROLE_ADMIN','ROLE_USER')")
     public String paraUser(){
         return "user y admin";
     }
